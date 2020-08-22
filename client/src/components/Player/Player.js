@@ -13,7 +13,7 @@ const Player = () => {
 
     useEffect(() => {
         const getSongs = async () => {
-            const res = await fetch(`http://192.168.1.8:8000/songs/${numberOfSongs}`);
+            const res = await fetch(`http://127.0.0.1:8000/songs/${numberOfSongs}`);
             const data = await res.json();
 
             if (data.length < 1) {
