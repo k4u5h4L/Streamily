@@ -13,7 +13,7 @@ const Player = () => {
 
     useEffect(() => {
         const getSongs = async () => {
-            const res = await fetch(`http://127.0.0.1:8000/songs/${numberOfSongs}`);
+            const res = await fetch(`http://192.168.1.8:8000/songs/${numberOfSongs}`);
             const data = await res.json();
 
             if (data.length < 1) {
@@ -52,39 +52,49 @@ const Player = () => {
                     </div>
 
                     <div className="col-lg-9">
-                        {songs.map((song, index) => (
-                            <Songs
-                                key={index}
-                                index={index}
-                                title={song.name}
-                                artist={song.artist}
-                                songSrc={song.source}
-                            />
-                        ))}
+                        {songs.length !== 0 ? (
+                            songs.map((song, index) => (
+                                <Songs
+                                    key={index}
+                                    index={index}
+                                    title={song.name}
+                                    artist={song.artist}
+                                    songSrc={song.source}
+                                />
+                            ))
+                        ) : (
+                            <div className="text-center">
+                                <hr />
+                                <h3>Unable to fetch songs</h3>
+                                <hr />
+                            </div>
+                        )}
                         {songsOver ? <SongListOver /> : null}
                     </div>
-                    <div className="container" data-aos="fade-up">
-                        <div className="row">
-                            <div className="col-md-12 text-center">
-                                <div className="site-block-27">
-                                    <div className="text-center">
-                                        <ul>
-                                            <div className="text-center">
-                                                <button
-                                                    className="btn btn-primary"
-                                                    onClick={(event) => getMoreSongs(event)}
-                                                    type="button"
-                                                    id="button-addon2"
-                                                >
-                                                    Load more...
-                                                </button>
-                                            </div>
-                                        </ul>
+                    {songs.length !== 0 ? (
+                        <div className="container" data-aos="fade-up">
+                            <div className="row">
+                                <div className="col-md-12 text-center">
+                                    <div className="site-block-27">
+                                        <div className="text-center">
+                                            <ul>
+                                                <div className="text-center">
+                                                    <button
+                                                        className="btn btn-primary"
+                                                        onClick={(event) => getMoreSongs(event)}
+                                                        type="button"
+                                                        id="button-addon2"
+                                                    >
+                                                        Load more...
+                                                    </button>
+                                                </div>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    ) : null}
                 </div>
             </div>
         </div>
