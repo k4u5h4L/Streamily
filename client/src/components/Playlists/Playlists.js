@@ -6,7 +6,7 @@ const Playlists = () => {
             <a href="#" className="d-flex align-items-center">
                 {/* <img src="images/platlist-1.jpg" alt="Image" className="img-fluid mr-2" /> */}
                 <div className="podcaster">
-                    <span className="d-block">Claire Stanford</span>
+                    <span className="d-block">Main playlist</span>
                     {/* <span className="small">32,420 podcasts</span> */}
                 </div>
             </a>

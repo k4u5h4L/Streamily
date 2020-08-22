@@ -1,27 +1,30 @@
 import React from "react";
 
-const Songs = () => {
+const Songs = (props) => {
     return (
         <div className="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
-            <div className="image"></div>
+            {/* <div
+                class="image"
+                style={{
+                    backgroundImage:
+                        "url('https://cdn.arstechnica.net/wp-content/uploads/2012/05/astley.jpg')",
+                }}
+            ></div> */}
             <div className="text">
+                <span className="text-black-opacity-05">
+                    <small>Song number: {props.index + 1}</small>
+                </span>
                 <h3 className="font-weight-light">
-                    <a href="single-post.html">Never Gonna Give You Up</a>
+                    <a href="#">{props.title}</a>
                 </h3>
                 <div className="text-white mb-3">
                     <span className="text-black-opacity-05">
-                        <small>By Rick Ashley</small>
+                        <small>By {props.artist}</small>
                     </span>
                 </div>
 
                 <div className="player">
-                    <iframe
-                        id="player2"
-                        src="https://drive.google.com/file/d/1iCFISiDaVPKJceF2ba7cjT7NGU9L5FLz/preview"
-                        width="470"
-                        height="80"
-                        frameborder="0"
-                    ></iframe>
+                    <iframe id="player2" src={props.songSrc} width="470" height="80" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
