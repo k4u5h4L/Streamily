@@ -1,3 +1,4 @@
-client/src/components/* linguist-vendored=false
-client/public/* linguist-vendored=false
-
+# client/src/components/* linguist-vendored=false
+# client/public/* linguist-vendored=false
+*.html linguist-detectable=false
+*.css linguist-detectable=false
